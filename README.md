@@ -8,6 +8,8 @@
 
 ## `pyenv`：建立不同 `Python` 版本
 
+`pyenv`及`conda`都可以用來建立不同`Python`版本。這裡選擇介紹`pyenv`。
+
 ### 安裝並設定 `pyenv`
 
 1. 安裝 `pyenv`
@@ -17,7 +19,7 @@
     brew install pyenv
     ```
 
-    安裝完成後，按照 `Homebrew` 的輸出指示，將下列代碼添加到 `shell` 啟動文件中。這通常是 `.bashrc` 或 `.zshrc`。我的系統是的 `shell` 是 `zsh` 語法。
+    安裝完成後，按照 `Homebrew` 的輸出指示，將下列代碼添加到 `shell` 啟動文件中。這通常是 `.bashrc` 或 `.zshrc`。我的系統的 `shell` 是 `zsh` 語法。
 
     ```bash
     if command -v pyenv 1>/dev/null 2>&1; then
@@ -87,16 +89,73 @@ pyenv global 3.9.18
 切換完成後，可以（在 `Terminal` 中）使用 `python --version` 查看目前的 `Python` 版本。
 
 ```bash
-python --version
+python3 --version
 ```
 
-## `venv`：建立互相獨立的 `Python` 虛擬環境
+## `virtualenv`：建立相互獨立的`Python`虛擬環境
+
+`virtualenv`及`venv`都可以用來建立`Python`虛擬環境。
+
+`virtualenv`(`pyenv-virtualenv`)是`pyenv`的一個插件。用`virtualenv`來建立的`Python`虛擬環境會與用`pyenv`建立的各種`Python`版本在同一個資料夾中，所以很方便統一管理各版本們及各版本的各虛擬環境們。
+
+`venv`是`Python`中的一個套件，因此`venv`只能在當前`Python`版本裡建立虛擬環境。如果有需要在不同`Python`版本之間切換的需求時，不適合用`venv`建立虛擬環境。
+
+以下先介紹`virtualenv`(`pyenv-virtualenv`)。
+
+### `virtualenv`（`pyenv-virtualenv`）使用介紹
+
+#### 安裝`pyenv-virtualenv`
+
+在`Terminal`中輸入並執行
+
+```zsh
+brew install pyenv-virtualenv
+```
+
+安裝完成後在shell配置文件(例如 `.bashrc`、`.zshrc`)中添加初始化 `pyenv-virtualenv` 的代碼
+
+```zsh
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+```
+
+#### 創建虛擬環境
+
+確認已經安裝所需的`Python`版本。如果未安裝，可以先用`pyenv`安裝。
+假設要安裝的版本是`3.9.18`。
+
+```zsh
+pyenv install 3.9.18  # 替換為所需的版本
+```
+
+創建一個新的虛擬環境。
+假設要安裝的版本是`3.9.18`。假設欲將虛擬環境取名為`3.9.18-my-project-env`。
+
+```zsh
+pyenv virtualenv 3.9.18 3.9.18-my-project-env
+```
+
+#### 啟用虛擬環境
+
+```zsh
+pyenv activate 3.9.18-my-project-env
+```
+
+#### 停用虛擬環境
+
+```zsh
+pyenv deactivate 3.9.18-my-project-env
+```
+
+### `venv`：建立互相獨立的 `Python` 虛擬環境（另一種）
+
+目前不建議使用`venv`來建立虛擬環境。
 
 參考資料：<https://docs.python.org/zh-tw/3/tutorial/venv.html>
 
 假設系統已安裝 `venv`。（如何安裝要再查）
 
-### 建立新環境
+#### 建立新環境
 
 移至要建立虛擬環境的目錄：(以下為範例，具體路徑是目標目錄的路徑)
 
