@@ -205,7 +205,7 @@ deactivate
   或
 
   ```bash
-  pip3 freeze > requirement.txt
+  pip3 freeze > requirements.txt
   ```
 
   目前猜測在非虛擬環境中（`system`原生環境）中執行上述命令時所生成的 `requirement.txt` 中會出現一些如下內容，則 `pip3 install` 無法解析，例如：
