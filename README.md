@@ -1,6 +1,6 @@
 # Python Virtual Environment 虛擬環境的增刪查改
 
-這份文件旨在說明`pyenv`、`virtualenv`以及`pip3`的功能與使用方法。假設系統為`Mac OS`；`Terminal`為`zsh`。
+這份文件旨在說明`pyenv`、`virtualenv`以及`pip3`的功能與使用方法。假設系統為`Mac OS`；`Terminal`的`Shell`語言為`zsh`或`bash`。
 
 參考資料：
 
