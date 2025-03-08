@@ -135,6 +135,14 @@ pyenv install 3.9.18  # 替換為所需的版本
 pyenv virtualenv 3.9.18 3.9.18-my-project-env
 ```
 
+#### 刪除虛擬環境
+
+假設要刪除的虛擬環境名稱為`3.9.18-my-project-env`。使用`pyenv virtualenv-delete`。
+
+```zsh
+pyenv virtualenv-delete 3.9.18-my-project-env
+```
+
 #### 啟用虛擬環境
 
 ```zsh
@@ -147,7 +155,7 @@ pyenv activate 3.9.18-my-project-env
 pyenv deactivate 3.9.18-my-project-env
 ```
 
-### `venv`：建立互相獨立的`Python`虛擬環境（另一種）
+###（目前不建議使用！！！）`venv`：建立互相獨立的`Python`虛擬環境（另一種）
 
 目前不建議使用`venv`來建立虛擬環境。
 
